@@ -1,0 +1,90 @@
+-<!DOCTYPE html>
+<HTML>
+<body>
+
+<style>
+#calc_button {
+border: none;
+color: white;
+background-color: #4db65f;
+padding: 10px 215px;
+text-transform: uppercase;
+cursor: pointer;
+font-family:Helvetica
+}
+
+
+#bill_amount {
+height: 20px;
+width: 500px;
+border: 1px light grey;
+}
+
+
+#tip_percent {
+Height: 20px;
+Width: 500px;
+border: 1px light grey;
+}
+
+
+.label {
+font-family:Helvetica
+
+}
+
+
+</style>
+
+<center><p style="font-size: 25px; font-family:Helvetica"> <b>Tip Calculator</b> </p></center>
+
+<p class="label">Enter the bill amount and tip percentage to calculate the total.</p>
+
+<label for="bill_amount" class="label">Bill amount:</label><br>
+<input type="number" id="bill_amount">
+
+
+<br><br>
+<label for="tip_percent" class="label">Tip percentage:</label><br>
+<input type="number" id="tip_percent">
+<br><br>
+
+
+<button onclick="calculate()" id="calc_button">Calculate</button>
+<br><br>
+
+
+<label for="tip_total" class="label">Tip amount:</label> 
+<span id="tip_total"></span>
+
+<br><br>
+<label for="total" class="label">Total:</label> 
+<span id="total"></span>
+
+
+
+</body>
+
+
+
+<script>
+function calculate() {
+  var bill_num = document.getElementById("bill_amount").value;
+  var tip_num = document.getElementById("tip_percent").value;
+  var tip_total = (tip_num/100)*bill_num;
+  var total_num = bill_num*(1+(tip_num/100));
+  
+  
+  document.getElementById("tip_total").innerHTML = tip_total;
+  document.getElementById("total").innerHTML = total_num;
+}
+
+</script>
+
+
+
+
+
+
+
+</HTML>
