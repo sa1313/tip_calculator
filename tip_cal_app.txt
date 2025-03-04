@@ -1,13 +1,14 @@
--<!DOCTYPE html>
+<!DOCTYPE html>
 <HTML>
-<body>
+
 
 <style>
 #calc_button {
 border: none;
 color: white;
 background-color: #4db65f;
-padding: 10px 215px;
+padding: 10px 10px;
+width: 510px;
 text-transform: uppercase;
 cursor: pointer;
 font-family:Helvetica
@@ -29,12 +30,39 @@ border: 1px light grey;
 
 
 .label {
-font-family:Helvetica
+font-family:Helvetica;
+
+}
+
+#total {
+font-weight: bold;
+font-size: 18px;
+font-family:Helvetica;
+content: "\0024";
+}
+
+#table_1 {
+background-color: white;
+padding: 20px 20px;
+border-radius: 10px;
+margin-left: auto;
+margin-right: auto;
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+
+#calc_button {
+font-size: 18px;
 
 }
 
 
 </style>
+
+<body style="background-color:#F2F2F2;">
+
+<table id="table_1">
+<td>
 
 <center><p style="font-size: 25px; font-family:Helvetica"> <b>Tip Calculator</b> </p></center>
 
@@ -61,7 +89,8 @@ font-family:Helvetica
 <label for="total" class="label">Total:</label> 
 <span id="total"></span>
 
-
+</td>
+</table>
 
 </body>
 
@@ -69,14 +98,14 @@ font-family:Helvetica
 
 <script>
 function calculate() {
-  var bill_num = document.getElementById("bill_amount").value;
-  var tip_num = document.getElementById("tip_percent").value;
+  var bill_num = parseFloat(document.getElementById("bill_amount").value);
+  var tip_num = parseFloat(document.getElementById("tip_percent").value);
   var tip_total = (tip_num/100)*bill_num;
-  var total_num = bill_num*(1+(tip_num/100));
+  var total_num = bill_num + tip_total;
   
   
-  document.getElementById("tip_total").innerHTML = tip_total;
-  document.getElementById("total").innerHTML = total_num;
+  document.getElementById("tip_total").innerHTML = "$" + tip_total;
+  document.getElementById("total").innerHTML = "$" + total_num;
 }
 
 </script>
@@ -87,4 +116,4 @@ function calculate() {
 
 
 
-</HTML>
+</HTML> 
